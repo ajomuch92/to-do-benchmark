@@ -33,3 +33,5 @@ out/
 
 appsettings.*.json
 appsettings.json
+
+node_modules
