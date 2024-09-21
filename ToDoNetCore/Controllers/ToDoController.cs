@@ -22,7 +22,7 @@ namespace ToDoNetCore.Controllers
             return await _context.ToDos.ToListAsync();
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         [ProducesResponseType(typeof(ToDo), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
@@ -51,7 +51,7 @@ namespace ToDoNetCore.Controllers
         }
 
         [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
@@ -61,7 +61,7 @@ namespace ToDoNetCore.Controllers
             _context.ToDos.Remove(toDoToDelete);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok();
         }
     }
 }
