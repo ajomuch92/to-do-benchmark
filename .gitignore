@@ -1,0 +1,35 @@
+# Compiled binary
+bin/
+obj/
+
+# User-specific files
+*.user
+*.vspscc
+*.vscode/
+*.suo
+
+# Logs
+*.log
+
+# NuGet Packages
+*.nupkg
+**/packages/
+
+# Publish output
+wwwroot/
+dist/
+out/
+
+# Environment variables
+.env
+
+# Rider
+.idea/
+*.sln.iml
+
+.vscode
+
+.vs
+
+appsettings.*.json
+appsettings.json
