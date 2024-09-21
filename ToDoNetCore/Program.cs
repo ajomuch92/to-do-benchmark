@@ -10,7 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<Ajomuch92ToDoContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("")));
+builder.Services.AddDbContext<Ajomuch92ToDoContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
+
+builder.Services.AddCors(o => o.AddPolicy("Cors", builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
 
 var app = builder.Build();
 
