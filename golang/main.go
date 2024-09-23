@@ -6,6 +6,7 @@ import (
 	"log"
 	"time"
 
+	"github.com/goccy/go-json"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -14,7 +15,10 @@ func main() {
 
 	database.DB.AutoMigrate(&models.ToDo{})
 
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+		JSONEncoder: json.Marshal,
+		JSONDecoder: json.Unmarshal,
+	})
 
 	// Rutas
 	app.Get("/api/todos", GetToDos)

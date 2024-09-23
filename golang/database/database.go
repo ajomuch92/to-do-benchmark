@@ -24,7 +24,9 @@ func ConnectDB() {
 		user, password, server, instanceName, database)
 	println(dsn)
 	var err error
-	DB, err = gorm.Open(sqlserver.Open(dsn), &gorm.Config{})
+	DB, err = gorm.Open(sqlserver.Open(dsn), &gorm.Config{
+		SkipDefaultTransaction: true,
+	})
 	if err != nil {
 		log.Fatal("No se pudo conectar a la base de datos", err)
 	}
